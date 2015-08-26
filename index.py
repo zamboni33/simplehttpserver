@@ -1,5 +1,6 @@
 import time
 import BaseHTTPServer
+from os import curdir, sep
 
 
 HOST_NAME = '' # !!!REMEMBER TO CHANGE THIS!!!
@@ -52,7 +53,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
             if sendReply == True:
                 #Open the static file requested and send it
-                f = open(s.path) 
+                f = open(curdir + sep + s.path) 
                 s.send_response(200)
                 s.send_header('Content-type',mimetype)
                 s.end_headers()
