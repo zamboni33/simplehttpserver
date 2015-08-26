@@ -1,6 +1,8 @@
 <html>
 <head>
 <style>
+
+
 .foreground {
   background-color: white;
   margin: auto;
@@ -30,9 +32,14 @@
 .search {
   position: absolute;
   margin: auto;
+  text-align: center;
   width: 100%;
   top: 50%;
-  z-index: 10;  
+  z-index: 10;
+}
+
+.searchfield {
+  width: 30%;
 }
 
 .buttons {
@@ -41,19 +48,19 @@
   width: 100%;
   top: 55%;
   z-index: 10;
+  text-align: center;
 }
 
 .images {
   position: absolute;
   margin: auto;
+  text-align: center;
   width: 100%;
   top: 50%;
 }
 </style>
 </head>
 <body>
-
-<center>
 
   <div class='foreground'></div>
   <div class='images'>
@@ -71,14 +78,15 @@
   </div>
 
   <form action="/SampleRedir" method="post">
-    <input class='search' type='text' name="redirect" value="/SampleRedir" />
+    <div class='search'>
+      <input class='searchfield' type='text' name="redirect" value="/SampleRedir" />
+    </div>
+
     <div class='buttons'>
       <input id='SampleButton' type='submit' value='Sample Button'>
       <input type='submit' value='Sample Button 2'>
     </div>
   </form>
-
-</center>
 
 <!-- <object data=http://www.web-source.net width="600" height="400">
 <embed src=http://www.web-source.net width="600" height="400"> </embed>
