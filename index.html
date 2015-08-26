@@ -1,0 +1,93 @@
+<html>
+<head>
+<style>
+.foreground {
+  background-color: white;
+  margin: auto;
+  height: 50%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+}
+
+.risingtext {
+  margin: auto;
+  position: relative;
+  top: -100;
+  transition: top 0.5s linear 0s;
+}
+
+.risingtext.initial {
+  position: relative;
+  top: 0;
+}
+
+.risingtext.final {
+  top: -65;
+}
+
+.buttons {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  top: 55%;
+  z-index: 10;
+}
+
+.images {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  top: 50%;
+}
+</style>
+</head>
+<body>
+
+<center>
+
+  <div class='foreground'></div>
+  <div class='images'>
+    <img src='info.png' id='0' class="risingtext initial">
+    <img src='info.png' id='1' class="risingtext initial">
+    <img src='info.png' id='2' class="risingtext initial">
+    <img src='info.png' id='3' class="risingtext initial">
+    <img src='info.png' id='4' class="risingtext initial">
+    <img src='info.png' id='5' class="risingtext initial">
+    <img src='info.png' id='6' class="risingtext initial">
+    <img src='info.png' id='7' class="risingtext initial">
+    <img src='info.png' id='8' class="risingtext initial">
+    <img src='info.png' id='9' class="risingtext initial">
+    <img src='info.png' id='10' class="risingtext initial">
+  </div>
+  <div class='buttons'>
+    <button>Sample Button</button>
+    <button>Sample Button 2</button>
+  </div>
+</center>
+
+<!-- <object data=http://www.web-source.net width="600" height="400">
+<embed src=http://www.web-source.net width="600" height="400"> </embed>
+Error: Embedded data could not be displayed. </object> -->
+
+
+</body>
+</html>
+
+
+<script>
+setTimeout( function () {    // outer setTimeout delays the begin of the animation
+  var delay = 0;
+  for (var i = 0; i <= 10; i++) {   // creates separate setTimeouts with increasing delay time
+    setTimeout( function (x) { return function () {
+      document.getElementById(x.toString()).className = "risingtext";
+
+      setTimeout( function (x) { return function () {
+        document.getElementById(x.toString()).className = "risingtext final";
+      }; }(x), 500)
+    }; }(i), delay);
+    delay += 100;
+  }
+},1000)
+</script>
